@@ -1,0 +1,57 @@
+{
+    "title": "ROOKIES LEAGUE",
+    "en": "English",
+    "ar": "اللغة العربية",
+    "LANDINGPAGE": {
+        "reserveyourfavouritepitch": "أحجز ملعبك المفضل",
+        "fromthebestoptions": "طريقة جديدة وسهلة لحجز الملاعب"
+    },
+    "AUTH": {
+        "login": "تسجيل الدخول",
+        "register": "تسجيل جديد",
+        "username": "الاسم",
+        "password": "كلمة المرور",
+        "PROFILE": {
+            "completeprofile": "الملف الشخصى",
+            "firstname": "الاسم الأول",
+            "lastname": "الأسم الأخير",
+            "nickname": "اسم الشهرة",
+            "phonenumber": "رقم الهاتف",
+            "dateofbirth": "تاريخ الميلاد",
+            "shirtnumber": "رقم القميص المفضل",
+            "pitchposition": "مركزك المفضل"
+        }
+    },
+    "player": "لاعب",
+    "pitch": "ملعب",
+    "save": "حفظ",
+    "cancel": "الغاء",
+    "actions": "أجراءات",
+    "DASHBOARD": {
+        "home": "الرئيسيه",
+        "calendar": "التقويم",
+        "myteam": "فريقى",
+        "allteams": "الفرق",
+        "players": "اللاعبين"
+    },
+    "TEAMS": {
+        "name": "الأسم",
+        "rate": "التقييم",
+        "players": "اللاعبين",
+        "age": "العمر",
+        "members": "أعضاء الفريق",
+        "awards": "جوائز الفريق",
+        "brief": "نبذه",
+        "create": "انشاء فريق",
+        "noteam": "انت لا تنتمى لأى فريق حاليا, قم بامشاء فؤيقك الخاص اوانضم لفريق",
+        "PLAYERS": {
+            "name": "اسم اللاعب",
+            "teamname":"اسم الفريق",
+            "position": "المركز",
+            "number": "الرقم المفضل",
+            "joindate": "تاريخ الانضمام",
+            "birthdate": "تاريخ الميلاد",
+            "age": "العمر"
+        }
+    }
+}

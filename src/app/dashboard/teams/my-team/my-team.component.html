@@ -1,0 +1,78 @@
+<soc-page-layout>
+    <div class="myteam__container">
+        <div class="myteam__not__found d-flex flex-column align-items-center p-4"
+            *ngIf="!team">
+            <div class="myteam__not__found__icon">
+                <img src="../../../../assets/images/svgs/undraw_no_data_re_kwbl.svg"
+                    alt="{{'TEAMS.noteam' | translate}}">
+            </div>
+            <div class="myteam__not__found__text">
+                {{'TEAMS.noteam' | translate}}
+            </div>
+            <div class="myteam__not__found__buttons">
+                <button pButton
+                    type="button"
+                    label="Create My Own Team"
+                    class="p-button-raised p-button-rounded"
+                    [routerLink]="['../action/create']"></button>
+                <button pButton
+                    type="button"
+                    label="Join Team"
+                    class="p-button-raised p-button-rounded p-button-success"
+                    [routerLink]="['../']"></button>
+            </div>
+        </div>
+        <div class="myteam__data"
+            *ngIf="team">
+            <soc-page-title [title]="team?.name">
+                <!-- <button pButton
+                    type="button"
+                    label="Create New Team"
+                    class="p-button-raised p-button-rounded"
+                    [routerLink]="['../action/create']"></button> -->
+            </soc-page-title>
+            <p>{{team?.brief}}</p>
+            <div class="row">
+                <!-- <p>{{'TEAMS.members' | translate}}</p> -->
+                <p-table [value]="teamMembers">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>{{'TEAMS.PLAYERS.name' | translate}}</th>
+                            <th>{{'TEAMS.PLAYERS.position' | translate}}</th>
+                            <th>{{'TEAMS.PLAYERS.number' | translate}}</th>
+                            <th>{{'TEAMS.PLAYERS.joindate' | translate}}</th>
+                            <th>{{'TEAMS.PLAYERS.birthdate' | translate}}</th>
+                            <th>{{'TEAMS.PLAYERS.age' | translate}}</th>
+                            <th></th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body"
+                        let-team>
+                        <tr>
+                            <td>
+                                {{team.nickname}} <small>({{team.firstname}} {{team.lastname}})</small>
+                            </td>
+                            <td>{{team.position}}</td>
+                            <td>{{team.shirtNumber}}</td>
+                            <td>{{team.created_date | date}}</td>
+                            <td>{{team.birthDate | date}}</td>
+                            <td>{{team.birthDate | calculateAge}}</td>
+                            <td>
+                                <img *ngIf="team.isCaptin"
+                                    src="../../../../assets/images/icons/captain.png"
+                                    alt="team captin"
+                                    title="team captin"
+                                    width="30">
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+            <div class="row mt-5">
+                <soc-page-title [title]="'TEAMS.awards'|translate">
+                </soc-page-title>
+                <p>comming soon</p>
+            </div>
+        </div>
+    </div>
+</soc-page-layout>

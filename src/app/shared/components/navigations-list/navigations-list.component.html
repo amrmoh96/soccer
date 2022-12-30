@@ -1,0 +1,42 @@
+<ul class="list-unstyled dashboard__area__content__side__content__menu">
+    <li>
+        <a routerLink="/dashboard"
+            [routerLinkActiveOptions]="{exact: true}"
+            routerLinkActive="active">
+            <i class="pi pi-home"></i>
+            <span>{{'DASHBOARD.home' | translate}}</span>
+        </a>
+    </li>
+    <li>
+        <a routerLink="/dashboard/teams/myteam"
+            [routerLinkActiveOptions]="{exact: true}"
+            routerLinkActive="active">
+            <i class="pi pi-sitemap"></i>
+            <span>{{'DASHBOARD.myteam' | translate}}</span>
+        </a>
+    </li>
+    <li>
+        <a routerLink="/dashboard/teams"
+            [routerLinkActiveOptions]="{exact: true}"
+            routerLinkActive="active">
+            <i class="pi pi-users"></i>
+            <span>{{'DASHBOARD.allteams' | translate}}</span>
+        </a>
+    </li>
+    <li>
+        <a routerLink="/dashboard/players"
+            [routerLinkActiveOptions]="{exact: true}"
+            routerLinkActive="active">
+            <i class="pi pi-users"></i>
+            <span>{{'DASHBOARD.players' | translate}}</span>
+        </a>
+    </li>
+    <li>
+        <a routerLink="/dashboard/calendar"
+            [routerLinkActiveOptions]="{exact: true}"
+            routerLinkActive="active">
+            <i class="pi pi-calendar"></i>
+            <span>{{'DASHBOARD.calendar' | translate}}</span>
+        </a>
+    </li>
+</ul>

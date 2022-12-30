@@ -1,0 +1,46 @@
+// TODO applay fonts to all elements
+
+@import './fonts/en';
+@import './fonts/ar';
+@import './variables/var';
+
+
+html {
+  font-size: $fontSize;
+
+  &[lang='en'] {
+    @import './variables/en';
+    @import './imports';
+
+    body {
+      direction: $dir;
+      font-family: $regular;
+    }
+  }
+
+  &[lang='ar'] {
+    @import './variables/ar';
+    @import './imports';
+
+    body {
+      direction: $dir;
+      font-family: $regular;
+    }
+  }
+
+}
+
+body {
+  margin: 0;
+  font-size: 1rem;
+}
+
+input,
+textarea {
+  font-family: inherit !important;
+  border-radius: $borderRadius !important;
+}
+
+.p-multiselect {
+  border-radius: $borderRadius !important;
+}

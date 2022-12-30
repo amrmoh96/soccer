@@ -1,0 +1,91 @@
+<div class="dashboard__area">
+    <div class="dashboard__area__header">
+        <div class="dashboard__area__header__logo__area">
+            <div class="dashboard__area__header__logo__area__logo">
+                <h1 class="m-0">{{'title' | translate}}</h1>
+                <!-- <img src="assets/images/logo/footballer-logos_white.png"
+                    alt=""> -->
+            </div>
+        </div>
+        <div class="dashboard__area__header__controls__area d-flex align-items-center">
+            <div class="dashboard__area__header__controls__area__notificatios">
+                <span class="dashboard__area__header__controls__area__notificatios__bell" (click)="notificationsPanel.toggle($event)">
+                    <i class="pi pi-bell"
+                        *ngIf="notificationsCount > 0"
+                        pBadge
+                        value="{{notificationsCount}}"></i>
+                    <i class="pi pi-bell"
+                        *ngIf="notificationsCount == 0"></i>
+                </span>
+            </div>
+            <div class="d-flex align-items-center dashboard__area__header__controls__area__language"
+                (click)="langPanel.toggle($event)">
+                <img width="30"
+                    class="dashboard__area__header__controls__area__language__flag"
+                    src="../../../assets/images/icons/flags/{{currentLang == 'en' ? 'united-kingdom' : 'egypt'}}.png"
+                    alt="">
+                <span class="dashboard__area__header__controls__area__language__name">{{currentLang|translate}}</span>
+            </div>
+            <div class="d-flex align-items-center dashboard__area__header__controls__area__language__login__button"
+                (click)="userPanel.toggle($event)">
+                <img src="../../../assets/images/icons/user.png"
+                    width="30"
+                    alt="">
+                <span>{{User ? User.username : ''}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="dashboard__area__content">
+        <div class="dashboard__area__content__side">
+            <div class="overlay"></div>
+            <div class="dashboard__area__content__side__content">
+                <soc-navigations-list></soc-navigations-list>
+            </div>
+        </div>
+        <div class="dashboard__area__content__body">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+<p-overlayPanel #langPanel>
+    <ng-template pTemplate>
+        <ul class="list-unstyled langaugae__change__controls p-0 m-0">
+            <li class="mb-3"
+                (click)="translate('en');langPanel.hide()">
+                <img width="30"
+                    src="../../../assets/images/icons/flags/united-kingdom.png"
+                    alt="">
+                <span>{{'en' | translate}}</span>
+            </li>
+            <li (click)="translate('ar');langPanel.hide()">
+                <img width="30"
+                    src="../../../assets/images/icons/flags/egypt.png"
+                    alt="">
+                <span>{{'ar' | translate}}</span>
+            </li>
+        </ul>
+    </ng-template>
+</p-overlayPanel>
+
+<p-overlayPanel #userPanel>
+    <ng-template pTemplate>
+        <p class="p-2 border-bottom">{{User ? User.email : ''}}</p>
+        <ul class="list-unstyled langaugae__change__controls p-0 m-0">
+            <li class="mb-3">
+                <i class="pi pi-user"></i>
+                <span>{{'Profile' | translate}}</span>
+            </li>
+            <li>
+                <i class="pi pi-sign-out"></i>
+                <span>{{'Signout' | translate}}</span>
+            </li>
+        </ul>
+    </ng-template>
+</p-overlayPanel>
+
+<p-overlayPanel #notificationsPanel>
+    <ng-template pTemplate>
+        <p>notifications</p>
+    </ng-template>
+</p-overlayPanel>

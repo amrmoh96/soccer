@@ -1,0 +1,10 @@
+.p-datatable table {
+  font-family: $regular;
+  th, td{
+    text-align: $left;
+  }
+}
+
+.p-datatable.p-datatable-striped .p-datatable-tbody>tr:nth-child(even) {
+  background: rgb(248, 249, 250);
+}

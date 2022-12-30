@@ -1,0 +1,127 @@
+.player__card {
+  // background: lighten($color: $primaryColor, $amount: 40%);
+  //   min-height: 500px;
+  // border-radius: $borderRadius;
+  position: relative;
+  overflow: hidden;
+
+  .player__card__overlay {
+    background: lighten($color: $primaryColor, $amount: 50%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    z-index: 0;
+    // border-radius: 100% 0 0;
+    border-radius: 0;
+    border-top-#{$left}-radius: 100%;
+  }
+
+  // .player__card__container {
+  //   position: absolute;
+  //   top: 0;
+  //   #{$left}: 0;
+  // }
+
+  .player__card__brief__container {
+    // position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px 0 20px;
+
+    .player__card__brief__container__overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgb(91 211 193 / 0%) 0%, rgb(91 211 193 / 0%) 35%, rgb(91 211 193 / 48%) 70%, #5bd3c1 100%);
+      top: 0;
+      #{$left}: 52px;
+      border-radius: 0;
+      border-top-#{$left}-radius: 100%;
+    }
+
+    .player__card__brief {
+      color: #fff;
+      font-family: 'PatuaOne-Regular';
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 21%;
+      left: 23%;
+
+      .player__card__brief__total {
+        font-size: 50px;
+        margin: 0;
+        line-height: 1;
+        color: $cardTextColor;
+        margin-bottom: 9px;
+      }
+
+      .player__card__brief__position {
+        font-size: 35px;
+        margin: 0;
+        line-height: 1;
+        color: $cardTextColor;
+      }
+    }
+
+    .player__card__img {
+      position: absolute;
+      top: 16.5%;
+      width: 50%;
+      right: 14%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: scale-down;
+        object-position: $right;
+      }
+    }
+  }
+
+  .player__card__content {
+    position: absolute;
+    z-index: 1;
+    font-family: $regular;
+    color: #fff;
+    bottom: 18%;
+    width: 100%;
+
+    .player__card__content__name {
+      font-size: 30px;
+      text-align: center;
+      font-family: $bold;
+      color: $cardTextColor;
+    }
+
+    .player__card__content__stats {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 20px 20px;
+
+      ul {
+        margin: 0;
+      }
+
+      .player__card__content__stats__name {
+        text-transform: uppercase;
+        font-size: 22px;
+        font-family: $semiBold;
+        color: $cardTextColor;
+        width: 50px;
+        display: inline-block;
+      }
+
+      .player__card__content__stats__number {
+        font-size: 22px;
+        font-family: $bold;
+        color: $cardTextColor;
+      }
+    }
+  }
+
+}

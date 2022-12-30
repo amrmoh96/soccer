@@ -1,0 +1,35 @@
+<soc-page-layout>
+    <div class="teams__myteam">
+        <div>
+            <soc-page-title [title]="team?.name">
+                <button pButton
+                    type="button"
+                    icon="pi pi-check"
+                    label="Join Team"
+                    *ngIf="canJoin"
+                    class="p-button-raised p-button-rounded"></button>
+            </soc-page-title>
+            <p>{{team?.brief}}</p>
+            <div class="row">
+                <h3>{{'TEAMS.members' | translate}}</h3>
+                <p-table [value]="teamMembers">
+                    <!-- <ng-template pTemplate="header">
+                        <tr>
+                            <th>{{'TEAMS.name' | translate}}</th>
+                        </tr>
+                    </ng-template> -->
+                    <ng-template pTemplate="body"
+                        let-team>
+                        <tr>
+                            <td>{{team.username}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+            <div class="row mt-5">
+                <soc-page-title [title]="'TEAMS.awards'|translate">
+                </soc-page-title>
+            </div>
+        </div>
+    </div>
+</soc-page-layout>

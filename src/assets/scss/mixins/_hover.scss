@@ -1,0 +1,10 @@
+@mixin backgroundOnHover($backgroundColor:rgba($primaryColor, .25), $pad:.5rem) {
+  transition: $transition;
+  padding: $pad;
+  border-radius: $borderRadius;
+
+  &:hover,&:active,&.active {
+    background: $backgroundColor;
+    cursor: pointer;
+  }
+}

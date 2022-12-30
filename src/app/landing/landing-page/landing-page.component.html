@@ -1,0 +1,54 @@
+<div class="landing__page">
+    <div class="landing__page__header d-flex align-items-center justify-content-between py-3 px-5">
+        <div class="landing__page__header__logo__area">
+            <div class="landing__page__header__logo__area__logo">
+                <h1 class="m-0">{{'title' | translate}}</h1>
+                <!-- <img src="assets/images/logo/footballer-logos_white.png"
+                    alt=""> -->
+            </div>
+        </div>
+        <div class="landing__page__header__controls__area d-flex align-items-center">
+            <div class="d-flex align-items-center landing__page__header__controls__area__language__login__button" routerLink="auth/login">
+                <img src="../../../assets/images/icons/user.png"
+                    width="30"
+                    alt="">
+                <span>{{'AUTH.login' | translate}}</span>
+            </div>
+            <div class="d-flex align-items-center landing__page__header__controls__area__language"
+                (click)="langPanel.toggle($event)">
+                <img width="30"
+                    class="landing__page__header__controls__area__language__flag"
+                    src="../../../assets/images/icons/flags/{{currentLang == 'en' ? 'united-kingdom' : 'egypt'}}.png"
+                    alt="">
+                <span class="landing__page__header__controls__area__language__name">{{currentLang|translate}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="landing__page__banner px-5 d-flex flex-column justify-content-center">
+        <div class="landing__page__banner__content">
+            <h1>{{'LANDINGPAGE.reserveyourfavouritepitch' | translate}}</h1>
+            <h1>{{'LANDINGPAGE.fromthebestoptions' | translate}}</h1>
+        </div>
+        <div class="landing__page__banner__overlay"></div>
+    </div>
+</div>
+
+<p-overlayPanel #langPanel>
+    <ng-template pTemplate>
+        <ul class="list-unstyled langaugae__change__controls p-0 m-0">
+            <li class="mb-3"
+                (click)="translate('en');langPanel.hide()">
+                <img width="30"
+                    src="../../../assets/images/icons/flags/united-kingdom.png"
+                    alt="">
+                <span>{{'en' | translate}}</span>
+            </li>
+            <li (click)="translate('ar');langPanel.hide()">
+                <img width="30"
+                    src="../../../assets/images/icons/flags/egypt.png"
+                    alt="">
+                <span>{{'ar' | translate}}</span>
+            </li>
+        </ul>
+    </ng-template>
+</p-overlayPanel>

@@ -1,0 +1,138 @@
+.dashboard__area {
+  position: relative;
+  padding-top: 70px;
+
+  .dashboard__area__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 1px 1px 5px 0px rgba($primaryColor, .3);
+    padding: 1rem 2rem;
+    height: 70px;
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+
+    .dashboard__area__header__logo__area {
+      .dashboard__area__header__logo__area__logo {
+        h1 {
+          font-family: $fancyregular;
+        }
+      }
+    }
+
+    .dashboard__area__header__controls__area {
+      .dashboard__area__header__controls__area__notificatios {
+        margin-#{$right}: .5rem;
+        @include backgroundOnHover;
+
+        .dashboard__area__header__controls__area__notificatios__bell {
+          display: flex;
+          align-items: center;
+
+          i {
+            font-size: 1.5rem;
+          }
+        }
+      }
+
+      .dashboard__area__header__controls__area__language {
+        margin-#{$right}: .5rem;
+        @include backgroundOnHover;
+
+        .dashboard__area__header__controls__area__language__flag {
+          margin-#{$right}: 5px;
+          width: 1.725rem;
+        }
+
+        span {
+          font-size: 1.125rem;
+        }
+      }
+
+      .dashboard__area__header__controls__area__language__login__button {
+        @include backgroundOnHover;
+
+        img {
+          margin-#{$right}: 5px;
+          width: 1.725rem;
+        }
+
+        span {
+          font-size: 1.125rem;
+        }
+      }
+    }
+  }
+
+  .dashboard__area__content {
+    display: flex;
+
+    .dashboard__area__content__side {
+      width: 17rem;
+      background: url('../../../images/banner.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+      height: calc(100vh - 70px);
+      padding: 2rem;
+      position: relative;
+
+      .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba($primaryColor, .89);
+        // background: linear-gradient(180deg, rgba(13, 36, 33, 0) 0%, rgba(13, 38, 34, 0.3) 35%, rgba(31, 51, 45, 0.72) 70%, rgba(10, 37, 33, 1) 100%);
+        top: 0;
+        left: 0;
+      }
+
+      .dashboard__area__content__side__content {
+        position: relative;
+        z-index: 1;
+        color: #fff;
+
+        .dashboard__area__content__side__content__menu {
+          padding: 0;
+
+          li {
+            margin-bottom: 1.32rem;
+
+            a {
+              text-decoration: none;
+              width: 100%;
+              // padding: .7rem 1rem;
+              // border-radius: $borderRadius;
+              color: #fff;
+              font-family: $regular;
+              text-transform: capitalize;
+              font-size: 1.2rem;
+              display: flex;
+              align-items: center;
+              // transition: .5s all ease-in-out;
+
+              i {
+                margin-#{$right}: 10px;
+                font-size: 1.3rem;
+              }
+
+              @include backgroundOnHover(lighten($color: $primaryColor, $amount: 40), $pad:.725rem 1rem);
+            }
+          }
+        }
+      }
+    }
+
+    .dashboard__area__content__body {
+      width: calc(100% - 17rem);
+      height: calc(100vh - 70px);
+      padding: 2rem;
+      background: #f8f9fa;
+      overflow: auto;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<soc-page-layout>
+    <div class="teams__create__team">
+        <div>
+            <soc-page-title [title]="formMode == 'create' ? 'Create new team':'Edit team'">
+            </soc-page-title>
+        </div>
+        <div class="login__page__login__box"
+            [formGroup]="teamForm">
+            <div class="p-inputgroup mb-3">
+                <input autocomplete="off"
+                    type="text"
+                    pInputText
+                    maxlength="16"
+                    minlength="3"
+                    formControlName="name"
+                    [class.ng-invalid]="getCtrl('name').invalid && (getCtrl('name').touched || getCtrl('name').dirty)"
+                    [class.ng-dirty]="getCtrl('name').invalid && (getCtrl('name').touched || getCtrl('name').dirty)"
+                    placeholder="{{'TEAMS.name' | translate}}{{this.UtilityService.isFieldRequired(this.getCtrl('name')) ? '*' : ''}}">
+            </div>
+
+            <div class="mb-3">
+                <p-multiSelect optionValue="code"
+                    [class.ng-invalid]="getCtrl('members').invalid && (getCtrl('members').touched || getCtrl('members').dirty)"
+                    [class.ng-dirty]="getCtrl('members').invalid && (getCtrl('members').touched || getCtrl('members').dirty)"
+                    defaultLabel="{{'TEAMS.players' | translate}}{{this.UtilityService.isFieldRequired(this.getCtrl('members')) ? '*' : ''}}"
+                    [options]="players|async"
+                    formControlName="members"
+                    optionLabel="name"></p-multiSelect>
+            </div>
+
+            <div class="p-inputgroup mb-3">
+                <textarea pInputTextarea
+                    formControlName="brief"
+                    rows="5"
+                    [class.ng-invalid]="getCtrl('brief').invalid && (getCtrl('brief').touched || getCtrl('brief').dirty)"
+                    [class.ng-dirty]="getCtrl('brief').invalid && (getCtrl('brief').touched || getCtrl('brief').dirty)"
+                    placeholder="{{'TEAMS.brief' | translate}}{{this.UtilityService.isFieldRequired(this.getCtrl('brief')) ? '*' : ''}}"></textarea>
+            </div>
+            <div class="d-flex align-items-center justify-content-end login__page__login__box__buttons">
+                <button pButton
+                    type="button"
+                    (click)="submit()"
+                    class="p-button-rounded p-button-raised"
+                    label="{{'TEAMS.create' | translate}}"></button>
+            </div>
+        </div>
+    </div>
+</soc-page-layout>

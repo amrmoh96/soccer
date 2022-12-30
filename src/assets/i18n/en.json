@@ -1,0 +1,64 @@
+{
+    "title": "ROOKIES LEAGUE",
+    "en": "English",
+    "ar": "اللغة العربية",
+    "LANDINGPAGE": {
+        "reserveyourfavouritepitch": "reserve your favourite pitch",
+        "fromthebestoptions": "a new and easy way to reserve your favourite pitch"
+    },
+    "AUTH": {
+        "login": "login",
+        "register": "register",
+        "username": "username",
+        "password": "password",
+        "PROFILE": {
+            "completeprofile": "Complete Profile",
+            "pitchownerfirstname": "Pitch Owner First Name",
+            "pitchownerlastname": "Pitch Owner Last Name",
+            "firstname": "First Name",
+            "lastname": "Last Name",
+            "nickname": "Nick Name",
+            "phonenumber": "Phone Number",
+            "dateofbirth": "Birth Date",
+            "shirtnumber": "Preferable Shirt Number",
+            "pitchposition": "Preferable Pitch Position",
+            "pitchName": "Pitch Name",
+            "pitchType": "Pitch Type",
+            "pitchCountry": "Pitch Country",
+            "pitchCity": "Pitch City",
+            "address": "address"
+        }
+    },
+    "player": "Player",
+    "pitch": "Pitch",
+    "save": "Save",
+    "cancel": "Cancel",
+    "actions": "Actions",
+    "DASHBOARD": {
+        "home": "home",
+        "calendar": "calendar",
+        "myteam": "my team",
+        "allteams": "Teams",
+        "players": "Players"
+    },
+    "TEAMS": {
+        "name": "Name",
+        "rate": "Rate",
+        "players": "Players",
+        "age": "Age",
+        "members": "Team Members",
+        "awards": "Team Awards",
+        "brief": "Brief",
+        "create": "Create Team",
+        "noteam": "You don't belong to any team use the buttons below to join a team or to create your own team",
+        "PLAYERS": {
+            "name": "Player Name",
+            "teamname":"Team Name",
+            "position": "Pitch Position",
+            "number": "Kit Number",
+            "joindate": "Join Date",
+            "birthdate": "Birth Date",
+            "age": "Age"
+        }
+    }
+}

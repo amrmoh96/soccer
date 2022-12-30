@@ -1,0 +1,127 @@
+<div class="profile__page d-flex flex-column align-items-center align-content-center py-5">
+    <div class="profile__page__overlay"></div>
+    <div class="profile__page__content">
+        <div class="profile__page__profile__box"
+            [formGroup]="profileForm">
+            <h2 class="profile__page__profile__box__title">{{'AUTH.PROFILE.completeprofile'|translate}}</h2>
+            <div class="mb-4">
+                <p-selectButton [options]="profileTypes"
+                    class="text-center"
+                    optionLabel="name"
+                    formControlName="profileType"
+                    optionValue="code">
+                    <ng-template let-item>
+                        <img src="../../../assets/images/icons/profile-type/{{item.name}}.png"
+                            alt=""
+                            width="25"
+                            class="mx-3">
+                        <span class="text-capitalize">{{item?.name | translate}}</span>
+                    </ng-template>
+                </p-selectButton>
+            </div>
+            <div class="container-fluid"
+                *ngIf="getCtrl('profileType')?.value != null">
+                <div class="p-fluid row">
+                    <div class="col-md-4 mb-3">
+                        <input type="text"
+                            pInputText
+                            formControlName="firstName"
+                            placeholder="{{ (getCtrl('profileType').value == 1 ? 'AUTH.PROFILE.firstname' : 'AUTH.PROFILE.pitchownerfirstname') | translate}}">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <input type="text"
+                            pInputText
+                            formControlName="lastName"
+                            placeholder="{{(getCtrl('profileType').value == 1 ? 'AUTH.PROFILE.lastname' : 'AUTH.PROFILE.pitchownerlastname') | translate}}">
+                    </div>
+                    <div class="col-md-4 mb-3"
+                        *ngIf="getCtrl('profileType')?.value == 1">
+                        <input type="text"
+                            pInputText
+                            formControlName="nickName"
+                            placeholder="{{'AUTH.PROFILE.nickname' | translate}}">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <input type="text"
+                            pInputText
+                            formControlName="phoneNumber"
+                            placeholder="{{'AUTH.PROFILE.phonenumber' | translate}}">
+                    </div>
+                    <div class="col-md-4 mb-3"
+                        *ngIf="getCtrl('profileType')?.value == 1">
+                        <p-calendar [showButtonBar]="true"
+                            [showIcon]="true"
+                            formControlName="birthDate"
+                            inputId="buttonbar"
+                            placeholder="{{'AUTH.PROFILE.dateofbirth' | translate}}"></p-calendar>
+                    </div>
+                    <div class="col-md-4 mb-3"
+                        *ngIf="getCtrl('profileType')?.value == 1">
+                        <input type="number"
+                            min="0"
+                            max="100"
+                            formControlName="shirtNumber"
+                            pInputText
+                            placeholder="{{'AUTH.PROFILE.shirtnumber' | translate}}">
+                    </div>
+                    <div class="col-md-4 mb-3"
+                        *ngIf="getCtrl('profileType')?.value == 1">
+                        <input type="text"
+                            pInputText
+                            formControlName="pitchPosition"
+                            placeholder="{{'AUTH.PROFILE.pitchposition' | translate}}">
+                    </div>
+                    <div class="col-md-4 mb-3"
+                        *ngIf="getCtrl('profileType')?.value == 2">
+                        <input type="text"
+                            pInputText
+                            formControlName="pitchName"
+                            placeholder="{{'AUTH.PROFILE.pitchName' | translate}}">
+                    </div>
+                    <div class="col-md-4 mb-3"
+                        *ngIf="getCtrl('profileType')?.value == 2">
+                        <input type="text"
+                            pInputText
+                            formControlName="pitchType"
+                            placeholder="{{'AUTH.PROFILE.pitchType' | translate}}">
+                    </div>
+                    <div class="col-md-4 mb-3"
+                        *ngIf="getCtrl('profileType')?.value == 2">
+                        <input type="text"
+                            pInputText
+                            formControlName="pitchCountry"
+                            placeholder="{{'AUTH.PROFILE.pitchCountry' | translate}}">
+                    </div>
+                    <div class="col-md-4 mb-3"
+                        *ngIf="getCtrl('profileType')?.value == 2">
+                        <input type="text"
+                            pInputText
+                            formControlName="pitchCity"
+                            placeholder="{{'AUTH.PROFILE.pitchCity' | translate}}">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <input type="text"
+                            pInputText
+                            formControlName="address"
+                            placeholder="{{'AUTH.PROFILE.address' | translate}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button pButton
+                            type="button"
+                            (click)="cancel()"
+                            label="{{'cancel'|translate}}"
+                            class="p-button-text p-button-plain"></button>
+
+                        <button pButton
+                            type="button"
+                            (click)="save()"
+                            class="wide__button"
+                            label="{{'save' | translate}}"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
