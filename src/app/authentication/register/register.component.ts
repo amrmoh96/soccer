@@ -5,7 +5,7 @@ import { AuthService } from './../../shared/services/http/auth.service';
 import { LangService } from './../../shared/services/lang.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -15,9 +15,9 @@ import { MessageService } from 'primeng/api';
 })
 export class RegisterComponent implements OnInit {
   
-  public registrationForm: FormGroup = new FormGroup({});
+  public registrationForm: UntypedFormGroup = new UntypedFormGroup({});
   constructor(public langService: LangService, private router: Router,
-    private AuthService: AuthService, private fb: FormBuilder, private messageService: MessageService,
+    private AuthService: AuthService, private fb: UntypedFormBuilder, private messageService: MessageService,
     public UtilityService: UtilityService, private ProfileService: ProfileService) { }
 
   ngOnInit(): void {

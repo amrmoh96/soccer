@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { Team } from 'src/app/shared/models/Team.model';
@@ -19,9 +19,9 @@ import { Profile } from 'src/app/shared/models/profile.model';
 export class CreateEditTeamComponent implements OnInit {
 
   public formMode: 'create' | 'update' = 'create';
-  public teamForm: FormGroup = new FormGroup({});
+  public teamForm: UntypedFormGroup = new UntypedFormGroup({});
   public players?: Observable<any>;
-  constructor(public langService: LangService, private router: Router, private fb: FormBuilder, private messageService: MessageService,
+  constructor(public langService: LangService, private router: Router, private fb: UntypedFormBuilder, private messageService: MessageService,
     public UtilityService: UtilityService, private activeRoute: ActivatedRoute, private teamService: TeamsService, private profileService: ProfileService) { }
 
   ngOnInit(): void {

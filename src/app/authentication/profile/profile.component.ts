@@ -1,7 +1,7 @@
 import { ProfileService } from './../../shared/services/http/profile.service';
 import { UtilityService } from './../../shared/services/utility.service';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Profile } from 'src/app/shared/models/profile.model';
 import { LangService } from 'src/app/shared/services/lang.service';
@@ -12,12 +12,12 @@ import { LangService } from 'src/app/shared/services/lang.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  public profileForm: FormGroup = new FormGroup({});
+  public profileForm: UntypedFormGroup = new UntypedFormGroup({});
   public profileTypes: any[] = [
     { name: 'player', code: 1 },
     { name: 'pitch', code: 2 },
   ]
-  constructor(public langService: LangService, private router: Router, private fb: FormBuilder, private UtilityService: UtilityService, private ProfileService: ProfileService) { }
+  constructor(public langService: LangService, private router: Router, private fb: UntypedFormBuilder, private UtilityService: UtilityService, private ProfileService: ProfileService) { }
 
   ngOnInit(): void {
     this.profileForm = this.fb.group({
