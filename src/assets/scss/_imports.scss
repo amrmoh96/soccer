@@ -5,7 +5,9 @@
 @import './pages/landing';
 
 // //////////////////////////////// Layouts
-@import './layouts/player-card', './layouts/page-layout', './layouts/page-title', './layouts/components/p-table';
+@import './layouts/player-card', './layouts/page-layout', './layouts/page-title',
+'./layouts/components/p-table', './layouts/components/notifications', './layouts/components/league-card',
+'./layouts//components/match-card';
 
 
 // //////////////////////////////// Pages
@@ -13,6 +15,7 @@
 @import './pages/auth/login';
 @import './pages/auth/profile';
 @import './pages/teams/myteam';
+@import './pages/leagues/leagues-registered-teams';
 
 // dashboard pages
 @import './pages/dashboard/dashboard';

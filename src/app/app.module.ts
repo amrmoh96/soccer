@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,8 +12,10 @@ import { RippleModule } from 'primeng/ripple';
 import { HeaderInterceptor } from './shared/services/httpInterceptor';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { SocketService } from './shared/services/http/socket.service';
 
-
+const socketConfig: SocketIoConfig = { url: `${environment.api}`, options: {} };
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -33,12 +36,15 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
     RippleModule,
-    ToastModule
+    ToastModule,
+    SocketIoModule
+    // .forRoot(socketConfig)
   ],
   providers: [
     MessageService,
     TranslateService,
-    { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
+    SocketService
   ],
   bootstrap: [AppComponent]
 })

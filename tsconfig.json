@@ -17,6 +17,9 @@
     "target": "ES2022",
     "module": "es2020",
     "lib": [
+      "DOM",
+      "ES2020",
+      "ESNext",
       "es2018",
       "dom"
     ],

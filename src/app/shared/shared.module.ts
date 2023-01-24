@@ -18,6 +18,10 @@ import { CalculateAgePipe } from './pipes/calculate-age.pipe';
 import {BadgeModule} from 'primeng/badge';
 import { NavigationsListComponent } from './components/navigations-list/navigations-list.component';
 import { RouterModule, Routes } from '@angular/router';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { RelativeDatePipe } from './pipes/relative-date.pipe';
+import { LeagueCardComponent } from './components/league-card/league-card.component';
+import { MatchAcrdComponent } from './components/match-acrd/match-acrd.component';
 
 
 
@@ -27,7 +31,11 @@ import { RouterModule, Routes } from '@angular/router';
     PageLayoutComponent,
     PageTitleComponent,
     CalculateAgePipe,
-    NavigationsListComponent
+    NavigationsListComponent,
+    NotificationsComponent,
+    RelativeDatePipe,
+    LeagueCardComponent,
+    MatchAcrdComponent
   ],
   imports: [
     CommonModule,
@@ -63,7 +71,11 @@ import { RouterModule, Routes } from '@angular/router';
     PageTitleComponent,
     CalculateAgePipe,
     BadgeModule,
-    NavigationsListComponent
+    NavigationsListComponent,
+    NotificationsComponent,
+    RelativeDatePipe,
+    LeagueCardComponent,
+    MatchAcrdComponent
   ]
 })
 export class SharedModule { }

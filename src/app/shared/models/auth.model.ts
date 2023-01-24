@@ -3,5 +3,8 @@ export interface UserLogin {
     email?: string,
     token?: string,
     username?: string,
-    password?: string
+    password?: string,
+    firstName?: string,
+    lastName?: string,
+    profileType?: number,
 }

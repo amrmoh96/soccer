@@ -4,10 +4,20 @@ export interface Request {
     requestFrom: number,
     requestTo: number,
     requestDate?: Date
+    teamId?:number,
+    action?:ActionTypes,
+    actionDate?:Date,
+    seen?:boolean
+    seenDate?:Date
 }
 
 export const enum RequestTypes {
-    join = 0,
-    invite = 1
+    invite = 1,
+    join = 2,
+}
+
+export const enum ActionTypes {
+    invite = 1,
+    join = 2,
 }
 

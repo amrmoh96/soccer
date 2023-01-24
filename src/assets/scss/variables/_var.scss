@@ -3,13 +3,13 @@
 // font-size
 $fontSize:1vw;
 $borderRadius:2rem;
-$transition:1s all ease;
+$transition:.3s all ease-in-out;
 
 $primaryColor:#0A2521;
 
 $cardTextColor:#f8de8d;
 
-$boxShadow:3px 4px 6px 0px rgb(10 37 33 / 30%);
+$boxShadow:0.2rem 0.3rem 0.2rem rgba(0, 0, 0, .075);
 
 // color pallete
 $rose:#f70a71;

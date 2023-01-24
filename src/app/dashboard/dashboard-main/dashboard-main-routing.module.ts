@@ -9,6 +9,7 @@ const routes: Routes = [
       { path: '', loadChildren: () => import('../dashboard-home/dashboard-home.module').then(M => M.DashboardHomeModule) },
       {path:'players', component:PlayersComponent},
       { path: 'teams', loadChildren: () => import('../teams/teams.module').then(M => M.TeamsModule) },
+      { path: 'leagues', loadChildren: () => import('../leagues/leagues.module').then(M => M.LeaguesModule) }
     ],
   },
 ];

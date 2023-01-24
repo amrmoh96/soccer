@@ -33,13 +33,13 @@
                 <td>{{player.birthDate | calculateAge}}</td>
                 <td>
                     <a *ngIf="player.teamId && myTeam?.teamId == player.teamId"
-                        routerLink='../teams/myteam'>{{player.name}}</a>
+                        routerLink='../teams/myteam'>{{player.teamName}}</a>
                     <a *ngIf="player.teamId && myTeam?.teamId != player.teamId"
-                        routerLink='../teams/action/view/{{player.teamId}}'>{{player.name}}</a>
+                        routerLink='../teams/action/view/{{player.teamId}}'>{{player.teamName}}</a>
                     <span *ngIf="!player.teamId">-</span>
                 </td>
                 <td>{{(player.created_date | date) || '-'}}</td>
-                <td style="width: 250px;">
+                <td style="max-width: 250px;">
                     <div style="display: grid;
                     grid-template-columns: repeat(2, minmax(0, 1fr));
                     grid-gap: 10px;">

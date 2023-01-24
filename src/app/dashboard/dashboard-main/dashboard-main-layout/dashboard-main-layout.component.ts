@@ -1,8 +1,13 @@
+import { map } from 'rxjs/operators';
 import { UserLogin } from './../../../shared/models/auth.model';
 import { UtilityService } from './../../../shared/services/utility.service';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { LangService } from 'src/app/shared/services/lang.service';
+import { RequestsService } from 'src/app/shared/services/http/requests.service';
+import { Observable } from 'rxjs';
+import { CacheService } from 'src/app/shared/services/cache.service';
+import { Request } from 'src/app/shared/models/request.model';
 
 @Component({
   selector: 'app-dashboard-main-layout',
@@ -11,9 +16,22 @@ import { LangService } from 'src/app/shared/services/lang.service';
 })
 export class DashboardMainLayoutComponent implements OnInit {
   items: MenuItem[] = [];
-  notificationsCount:number = 9;
+  notificationsCount: number = 0;
+  public notifications!: Observable<any>;
 
-  constructor(private langService: LangService, private UtilityService: UtilityService) { }
+
+  public notifications$: Observable<any> = this.cacheService.getNotifications().pipe(
+    map(res => {
+      res.sort((a, b) => new Date(b.requestDate || 0).getTime() - new Date(a.requestDate || 0).getTime());
+      return res;
+    })
+  )
+
+  constructor(private langService: LangService, private UtilityService: UtilityService, private requests: RequestsService, public cacheService: CacheService) {
+    this.cacheService.getUnreadNotificationsCount().subscribe(res => {
+      this.notificationsCount = res;
+    })
+  }
 
   ngOnInit(): void {
     this.items = [
@@ -40,6 +58,7 @@ export class DashboardMainLayoutComponent implements OnInit {
         ]
       }
     ];
+
   }
 
   translate(lang: string) {
@@ -52,6 +71,10 @@ export class DashboardMainLayoutComponent implements OnInit {
 
   public get User(): UserLogin | null {
     return this.UtilityService.loggedUser
+  }
+
+  signOut() {
+    this.UtilityService.signOut()
   }
 
 }

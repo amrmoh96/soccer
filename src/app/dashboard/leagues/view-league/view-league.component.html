@@ -1,0 +1,28 @@
+<soc-page-layout>
+    <div pageSection>
+        <soc-page-title [title]="league?.leagueName || ''"></soc-page-title>
+        <p class="badge bg-primary">{{isLeaguedDatePast() ? 'Started':'Starts'}} {{league?.leagueStartDate |
+            relativeDate:isLeaguedDatePast()}}</p>
+        <p>{{league?.leagueDescription}}</p>
+    </div>
+    <div pageSection>
+        <soc-page-title [isSectionTitle]="true"
+            [title]="'teams list'"></soc-page-title>
+        <div class="league__registered__teams">
+            <div class="league__registered__teams__card"
+                *ngFor="let team of leagueTeams|async">
+                <img src="../../../../assets/images/icons/soccer-jersey.png"
+                    alt=""
+                    width="60">
+                <p>{{team?.teamName}}</p>
+            </div>
+        </div>
+    </div>
+    <div pageSection>
+        <soc-page-title [isSectionTitle]="true"
+            [title]="'Upcoming matches'"></soc-page-title>
+        <soc-match-card *ngFor="let match of (leagueMatches | async)"
+            [match]="match"
+            [matchPlayed]="match?.matchPlayed"></soc-match-card>
+    </div>
+</soc-page-layout>

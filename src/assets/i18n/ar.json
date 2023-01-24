@@ -46,12 +46,17 @@
         "noteam": "انت لا تنتمى لأى فريق حاليا, قم بامشاء فؤيقك الخاص اوانضم لفريق",
         "PLAYERS": {
             "name": "اسم اللاعب",
-            "teamname":"اسم الفريق",
+            "teamname": "اسم الفريق",
             "position": "المركز",
             "number": "الرقم المفضل",
             "joindate": "تاريخ الانضمام",
             "birthdate": "تاريخ الميلاد",
             "age": "العمر"
         }
+    },
+    "NOTIFICATIONS": {
+        "notifications": "الأشعارات",
+        "teamInvitationRequest": "أرسل لك <span>{{playerName}}</span> من فريق <span>{{teamName}}</span> طلب انضمام لفريقهم",
+        "teamJoinRequest": "أرسل <span>{{playerName}}</span> طلب انضمام لفريك"
     }
 }

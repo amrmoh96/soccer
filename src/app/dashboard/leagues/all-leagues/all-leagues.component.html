@@ -1,0 +1,61 @@
+<soc-page-layout>
+    <soc-page-title [title]="'DASHBOARD.leagues' | translate"></soc-page-title>
+    <p-table styleClass="p-datatable-striped"
+        [value]="(leagues$ | async) || []"
+        [paginator]="true"
+        [rows]="10"
+        [showCurrentPageReport]="false"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} teams"
+        [rowsPerPageOptions]="[10,20,50]">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>#</th>
+                <th></th>
+                <th>Name</th>
+                <th>Play date</th>
+                <th>Registered Teams</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body"
+            let-league>
+            <tr>
+                <td>{{league.leagueId}}</td>
+                <td>
+                    <img *ngIf="league.leagueRuleId == 1"
+                        src="../../../../assets/images/icons/cup.png"
+                        alt="" width="40">
+                    <img *ngIf="league.leagueRuleId == 2"
+                        src="../../../../assets/images/icons/league.png"
+                        alt="" width="40">
+                </td>
+                <td>{{league.leagueName}}</td>
+                <td>{{league.leagueStartDate | relativeDate:leagueDatePassed(league) }}</td>
+                <td>{{league.registeredTeamsCount}}</td>
+                <td>{{league.leagueDescription | slice :0:60}}</td>
+                <td style="width: 250px;">
+                    <div style="display: grid;
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    grid-gap: 10px;">
+                        <button pButton
+                            pRipple
+                            type="button"
+                            icon="pi pi-eye"
+                            class="p-button-rounded p-button-success p-button-raised p-button-sm"
+                            routerLink="./{{league?.leagueId}}"
+                            label="View"></button>
+                        <button pButton
+                            pRipple
+                            type="button"
+                            icon="pi pi-check"
+                            *ngIf=" canJoinLeague(league)"
+                            class="p-button-rounded p-button-raised p-button-sm"
+                            (click)="joinLeague(league)"
+                            label="Join"></button>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</soc-page-layout>

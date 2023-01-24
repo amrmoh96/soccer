@@ -1,0 +1,85 @@
+.upcoming__match__card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  border: 1px solid #e9e9e9;
+  background-color: #f7f7f7;
+  border-radius: 3rem;
+  padding: 0 .5rem;
+  @include shadowOnHover;
+  @include inOutCircle;
+
+  >* {
+    position: relative;
+    z-index: 1;
+  }
+
+  .upcoming__match__card__team__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+
+    .upcoming__match__card__team__container__team__name {
+      display: flex;
+      align-items: center;
+    }
+
+    .upcoming__match__card__team__container__team__score {
+      display: flex;
+      align-items: center;
+
+      p {
+        font-size: 1.75rem;
+        font-family: $bold;
+        margin-#{$right}: .3rem;
+      }
+
+      span {
+        font-size: 1.4rem;
+        font-family: $bold;
+      }
+    }
+
+    img {
+      width: 3rem;
+    }
+
+    &.away__team {
+      img {
+        margin-#{$left}: .5rem;
+      }
+    }
+
+    &:not(.away__team) {
+      img {
+        margin-#{$right}: .5rem;
+      }
+    }
+
+    p {
+      font-size: 1.125rem;
+      margin: 0;
+    }
+  }
+
+  .upcoming__match__card__time__league__logo__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    padding: .3rem 0;
+
+    img {
+      width: 2rem;
+    }
+
+    p {
+      // font-size: 1.125rem;
+      // font-family: $bold;
+      margin: 0;
+    }
+  }
+}

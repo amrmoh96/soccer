@@ -1,0 +1,63 @@
+<div class="notifications">
+    <div class="notifications__header">
+        <div class="notifications__header__title">
+            <p>{{'NOTIFICATIONS.notifications'|translate}}</p>
+        </div>
+        <div class="notifications__header__close__icon">
+            <i class="pi pi-times"></i>
+        </div>
+    </div>
+    <div class="notifications__content">
+        <div class="notifications__content__container">
+            <div class="notifications__content__container__item"
+                *ngFor="let item of notifications | async">
+                <div class="notifications__content__container__item__image">
+                    <!-- inviteRequest -->
+                    <img src="../../../assets/images/icons/contract.png"
+                        alt=""
+                        *ngIf="item?.requestType == inviteRequest">
+                    <!-- joinRequest -->
+                    <img src="../../../assets/images/icons/football-player.png"
+                        alt=""
+                        *ngIf="item?.requestType == joinRequest">
+                </div>
+                <div class="notifications__content__container__item__body">
+                    <div class="notifications__content__container__item__body__text"
+                        [class.seen]="item.seen">
+                        <p [innerHTML]="'NOTIFICATIONS.teamInvitationRequest'|translate:{playerName: item.firstName+' '+item.lastName,
+                            teamName: item.teamName}"
+                            *ngIf="item?.requestType == inviteRequest"></p>
+                        <p *ngIf="item?.requestType == joinRequest"
+                            [innerHTML]="'NOTIFICATIONS.teamJoinRequest'|translate:{playerName: item.firstName+' '+item.lastName}">
+                        </p>
+                    </div>
+                    <div class="notifications__content__container__item__body__time__action__buttons__container">
+                        <div class="notifications__content__container__item__body__time">
+                            <i class="pi pi-circle-fill"
+                                *ngIf="!item.seen"
+                                title="Mark as read"></i>
+                            <p>{{item.requestDate | relativeDate : true}}</p>
+                        </div>
+                        <div class="notifications__content__container__item__body__action__buttons">
+                            <button icon="pi pi-check"
+                                pButton
+                                class="p-button-text p-button-rounded p-button-success p-button-sm"
+                                title="Accept"></button>
+                            <button icon="pi pi-eye"
+                                pButton
+                                class="p-button-text p-button-rounded p-button-info p-button-sm"
+                                title="View"></button>
+                            <button icon="pi pi-times"
+                                pButton
+                                class="p-button-text p-button-rounded p-button-danger p-button-sm"
+                                title="Reject"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="notifications__content__container__no__notifications">
+            <p>No Notifications</p>
+        </div> -->
+    </div>
+</div>

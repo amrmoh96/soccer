@@ -1,16 +1,14 @@
-import { map } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
-import { TeamsService } from 'src/app/shared/services/http/teams.service';
 import { AbstractControl } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import jwt_decode from 'jwt-decode';
 import { UserLogin } from '../models/auth.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilityService {
-  constructor() { }
+  constructor(private router: Router) { }
 
   public get Token(): string | null {
     return localStorage.getItem('token')
@@ -31,5 +29,14 @@ export class UtilityService {
       }
     }
     return false;
-  };
+  }
+
+  public signOut() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/auth/login']).then((value) => {
+      console.log(value);
+      console.log(window.location.href);
+      window.location.reload();
+    });
+  }
 }

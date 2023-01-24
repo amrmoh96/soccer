@@ -9,29 +9,25 @@
         [rowsPerPageOptions]="[10,20,50]">
         <ng-template pTemplate="header">
             <tr>
-                <th>#</th>
-                <th>{{'TEAMS.name' | translate}}</th>
-                <th>{{'TEAMS.brief' | translate}}</th>
-                <th>{{'TEAMS.rate' | translate}}</th>
-                <th>{{'actions' | translate}}</th>
+                <th scope="">#</th>
+                <th scope="">{{'TEAMS.name' | translate}}</th>
+                <th scope="">{{'TEAMS.captin' | translate}}</th>
+                <th scope="">{{'TEAMS.brief' | translate}}</th>
+                <th scope="">{{'actions' | translate}}</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body"
             let-team>
             <tr>
-                <td>{{team.id}}</td>
-                <td>{{team.name}}</td>
-                <td>{{team.brief}}</td>
+                <td>{{team.teamId}}</td>
+                <td><strong>{{team.teamName}}</strong></td>
                 <td>
-                    <div style="display: inline-grid;
-                    grid-template-columns: repeat(5, minmax(0, 1fr));
-                    grid-gap: 5px;">
-                        <img *ngFor="let star of starCounter(team.rate)"
-                            src="../../../../assets/images/icons/favorite.png"
-                            style="width:1.2rem"
-                            alt="">
-                    </div>
+                    <a *ngIf="team?.captinFirstName">
+                        {{team?.captinFirstName}} {{team?.captinLastName}}
+                    </a>
+                    <span *ngIf="!team?.captinFirstName">-</span>
                 </td>
+                <td>{{team.teamBrief | slice :0 : 120}}</td>
                 <td style="width: 250px;">
                     <div style="display: grid;
                     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -42,20 +38,15 @@
                             type="button"
                             icon="pi pi-check"
                             class="p-button-rounded p-button-raised p-button-sm"
-                            label="Join"></button>
+                            label="Join"
+                            (click)="joinTeam(team.teamId, team.teamCaptinId)"></button>
                         <button pButton
                             pRipple
                             type="button"
                             icon="pi pi-eye"
                             class="p-button-rounded p-button-success p-button-raised p-button-sm"
                             label="View"
-                            [routerLink]="['./action/view',team.id]"></button>
-                        <!-- <button pButton
-                            pRipple
-                            type="button"
-                            icon="pi pi-link"
-                            class="p-button-rounded p-button-info p-button-raised p-button-outlined p-button-sm"
-                            label="Follow"></button> -->
+                            [routerLink]="['./action/view',team.teamId]"></button>
                     </div>
                 </td>
             </tr>

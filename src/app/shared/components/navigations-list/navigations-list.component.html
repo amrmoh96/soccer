@@ -32,6 +32,14 @@
         </a>
     </li>
     <li>
+        <a routerLink="/dashboard/leagues"
+            [routerLinkActiveOptions]="{exact: true}"
+            routerLinkActive="active">
+            <i class="pi pi-sitemap"></i>
+            <span>{{'DASHBOARD.leagues' | translate}}</span>
+        </a>
+    </li>
+    <li>
         <a routerLink="/dashboard/calendar"
             [routerLinkActiveOptions]="{exact: true}"
             routerLinkActive="active">

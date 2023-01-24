@@ -25,4 +25,10 @@
       }
     }
   }
+
+  .registered__leagues__container {
+    display: grid;
+    column-gap: 2rem;
+    grid-template-columns: auto auto auto auto auto auto;
+  }
 }

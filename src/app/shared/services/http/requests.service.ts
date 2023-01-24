@@ -16,4 +16,12 @@ export class RequestsService {
     return this.http.post(`${this.api}`, request).pipe()
   }
 
+  public getRequestsByPlayerId(playerId: number | undefined): Observable<any> {
+    return this.http.get(`${this.api}/${playerId}`).pipe()
+  }
+
+  public getUnreadNotificationsCount(playerId: number | undefined): Observable<number> {
+    return this.http.get<number>(`${this.api}/unread/${playerId}`).pipe()
+  }
+
 }

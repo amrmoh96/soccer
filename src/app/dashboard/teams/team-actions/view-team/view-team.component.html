@@ -1,7 +1,7 @@
 <soc-page-layout>
     <div class="teams__myteam">
         <div>
-            <soc-page-title [title]="team?.name">
+            <soc-page-title [title]="team?.teamName">
                 <button pButton
                     type="button"
                     icon="pi pi-check"
@@ -9,19 +9,38 @@
                     *ngIf="canJoin"
                     class="p-button-raised p-button-rounded"></button>
             </soc-page-title>
-            <p>{{team?.brief}}</p>
+            <p>{{team?.teamBrief}}</p>
             <div class="row">
-                <h3>{{'TEAMS.members' | translate}}</h3>
                 <p-table [value]="teamMembers">
-                    <!-- <ng-template pTemplate="header">
+                    <ng-template pTemplate="header">
                         <tr>
-                            <th>{{'TEAMS.name' | translate}}</th>
+                            <th>{{'TEAMS.PLAYERS.name' | translate}}</th>
+                            <th>{{'TEAMS.PLAYERS.position' | translate}}</th>
+                            <th>{{'TEAMS.PLAYERS.number' | translate}}</th>
+                            <th>{{'TEAMS.PLAYERS.joindate' | translate}}</th>
+                            <th>{{'TEAMS.PLAYERS.birthdate' | translate}}</th>
+                            <th>{{'TEAMS.PLAYERS.age' | translate}}</th>
+                            <th></th>
                         </tr>
-                    </ng-template> -->
+                    </ng-template>
                     <ng-template pTemplate="body"
                         let-team>
                         <tr>
-                            <td>{{team.username}}</td>
+                            <td>
+                                {{team.nickname}} <small>({{team.firstname}} {{team.lastname}})</small>
+                            </td>
+                            <td>{{team.position}}</td>
+                            <td>{{team.shirtNumber}}</td>
+                            <td>{{team.created_date | date}}</td>
+                            <td>{{team.birthDate | date}}</td>
+                            <td>{{team.birthDate | calculateAge}}</td>
+                            <td>
+                                <img *ngIf="team.isCaptin"
+                                    src="../../../../assets/images/icons/captain.png"
+                                    alt="team captin"
+                                    title="team captin"
+                                    width="30">
+                            </td>
                         </tr>
                     </ng-template>
                 </p-table>

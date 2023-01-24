@@ -1,0 +1,26 @@
+<div class="league__card"
+    [class.minified__card]="minified"
+    *ngIf="league">
+    <div class="league__card__image">
+        <img *ngIf="league.leagueRuleId == 1"
+            src="../../../../assets/images/icons/cup.png"
+            alt="">
+        <img *ngIf="league.leagueRuleId == 2"
+            src="../../../../assets/images/icons/league.png"
+            alt="">
+    </div>
+    <div class="league__card__info">
+        <p>{{league.leagueName}}</p>
+        <p>{{league.leagueStartDate | relativeDate:leagueDatePassed(league)}}</p>
+        <p *ngIf="!minified">{{league.leagueDescription}}</p>
+    </div>
+    <div class="league__card__actions"
+        *ngIf="!minified">
+        <button pButton
+            pRipple
+            type="button"
+            icon="pi pi-times"
+            class="p-button-rounded p-button-danger p-button-raised p-button-sm"
+            title="Cancel Registration"></button>
+    </div>
+</div>

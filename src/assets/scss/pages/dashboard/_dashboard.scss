@@ -55,9 +55,23 @@
       .dashboard__area__header__controls__area__language__login__button {
         @include backgroundOnHover;
 
+        .dashboard__area__header__controls__area__language__login__button__profile__image {
+          width: 2rem;
+          height: 2rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $indigo;
+          color: #ffffff;
+          border-radius: 50%;
+          font-size: 1.125rem;
+          font-family: $semiBold;
+          margin-#{$right}: 5px;
+        }
+
         img {
           margin-#{$right}: 5px;
-          width: 1.725rem;
+          width: 2rem;
         }
 
         span {
@@ -86,7 +100,6 @@
         width: 100%;
         height: 100%;
         background: rgba($primaryColor, .89);
-        // background: linear-gradient(180deg, rgba(13, 36, 33, 0) 0%, rgba(13, 38, 34, 0.3) 35%, rgba(31, 51, 45, 0.72) 70%, rgba(10, 37, 33, 1) 100%);
         top: 0;
         left: 0;
       }
@@ -131,7 +144,7 @@
       width: calc(100% - 17rem);
       height: calc(100vh - 70px);
       padding: 2rem;
-      background: #f8f9fa;
+      background: #f7f7f7;
       overflow: auto;
     }
   }

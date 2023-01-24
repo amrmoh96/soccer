@@ -39,7 +39,8 @@
         "calendar": "calendar",
         "myteam": "my team",
         "allteams": "Teams",
-        "players": "Players"
+        "players": "Players",
+        "leagues": "Leagues"
     },
     "TEAMS": {
         "name": "Name",
@@ -53,12 +54,20 @@
         "noteam": "You don't belong to any team use the buttons below to join a team or to create your own team",
         "PLAYERS": {
             "name": "Player Name",
-            "teamname":"Team Name",
+            "teamname": "Team Name",
             "position": "Pitch Position",
             "number": "Kit Number",
             "joindate": "Join Date",
             "birthdate": "Birth Date",
             "age": "Age"
+        },
+        "LEAGUES": {
+            "registered": "registered Leagues"
         }
+    },
+    "NOTIFICATIONS": {
+        "notifications": "Notifications",
+        "teamInvitationRequest": "<span>{{playerName}}</span> from team <span>{{teamName}}</span> invited you to join thier squad",
+        "teamJoinRequest": "<span>{{playerName}}</span> asked to join your squad"
     }
 }

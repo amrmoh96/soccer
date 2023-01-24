@@ -24,55 +24,85 @@
         </div>
         <div class="myteam__data"
             *ngIf="team">
-            <soc-page-title [title]="team?.name">
-                <!-- <button pButton
-                    type="button"
-                    label="Create New Team"
-                    class="p-button-raised p-button-rounded"
-                    [routerLink]="['../action/create']"></button> -->
-            </soc-page-title>
-            <p>{{team?.brief}}</p>
-            <div class="row">
-                <!-- <p>{{'TEAMS.members' | translate}}</p> -->
-                <p-table [value]="teamMembers">
-                    <ng-template pTemplate="header">
-                        <tr>
-                            <th>{{'TEAMS.PLAYERS.name' | translate}}</th>
-                            <th>{{'TEAMS.PLAYERS.position' | translate}}</th>
-                            <th>{{'TEAMS.PLAYERS.number' | translate}}</th>
-                            <th>{{'TEAMS.PLAYERS.joindate' | translate}}</th>
-                            <th>{{'TEAMS.PLAYERS.birthdate' | translate}}</th>
-                            <th>{{'TEAMS.PLAYERS.age' | translate}}</th>
-                            <th></th>
-                        </tr>
-                    </ng-template>
-                    <ng-template pTemplate="body"
-                        let-team>
-                        <tr>
-                            <td>
-                                {{team.nickname}} <small>({{team.firstname}} {{team.lastname}})</small>
-                            </td>
-                            <td>{{team.position}}</td>
-                            <td>{{team.shirtNumber}}</td>
-                            <td>{{team.created_date | date}}</td>
-                            <td>{{team.birthDate | date}}</td>
-                            <td>{{team.birthDate | calculateAge}}</td>
-                            <td>
-                                <img *ngIf="team.isCaptin"
-                                    src="../../../../assets/images/icons/captain.png"
-                                    alt="team captin"
-                                    title="team captin"
-                                    width="30">
-                            </td>
-                        </tr>
-                    </ng-template>
-                </p-table>
+            <div pageSection>
+                <soc-page-title [title]="team?.teamName"></soc-page-title>
+                <p>{{team?.teamBrief}}</p>
+                <div class="row">
+                    <p-table [value]="teamMembers">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th scope="{{'TEAMS.PLAYERS.name' | translate}}">{{'TEAMS.PLAYERS.name' |
+                                    translate}}</th>
+                                <th scope="{{'TEAMS.PLAYERS.position' | translate}}">{{'TEAMS.PLAYERS.position' |
+                                    translate}}</th>
+                                <th scope="{{'TEAMS.PLAYERS.number' | translate}}">{{'TEAMS.PLAYERS.number' |
+                                    translate}}</th>
+                                <th scope="{{'TEAMS.PLAYERS.joindate' | translate}}">{{'TEAMS.PLAYERS.joindate' |
+                                    translate}}</th>
+                                <th scope="{{'TEAMS.PLAYERS.birthdate' | translate}}">{{'TEAMS.PLAYERS.birthdate' |
+                                    translate}}</th>
+                                <th scope="{{'TEAMS.PLAYERS.age' | translate}}">{{'TEAMS.PLAYERS.age' | translate}}
+                                </th>
+                                <th scope=""></th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body"
+                            let-team>
+                            <tr>
+                                <td>
+                                    {{team.nickname}} <small>({{team.firstname}} {{team.lastname}})</small>
+                                </td>
+                                <td>{{team.position}}</td>
+                                <td>{{team.shirtNumber}}</td>
+                                <td>{{team.created_date | date}}</td>
+                                <td>{{team.birthDate | date}}</td>
+                                <td>{{team.birthDate | calculateAge}}</td>
+                                <td>
+                                    <img *ngIf="team.isCaptin"
+                                        src="../../../../assets/images/icons/captain.png"
+                                        alt="team captin"
+                                        title="team captin"
+                                        width="30">
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
             </div>
-            <div class="row mt-5">
-                <soc-page-title [title]="'TEAMS.awards'|translate">
-                </soc-page-title>
-                <p>comming soon</p>
+            <div pageSection>
+                <div class="row">
+                    <div class="col-6">
+                        <soc-page-title [isSectionTitle]="true"
+                            [title]="'Upcoming matches'"></soc-page-title>
+                        <div *ngIf="((teamUpcomingMatches$ | async) || []).length > 0; else noUpcomingMatchesTemplate">
+                            <soc-match-card *ngFor="let match of (teamUpcomingMatches$ | async)"
+                                [match]="match"
+                                [matchPlayed]="false"></soc-match-card>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <soc-page-title [isSectionTitle]="true"
+                            [title]="'played matches'"></soc-page-title>
+                        <soc-match-card *ngFor="let match of (playedMatches$ | async)"
+                            [match]="match"
+                            [matchPlayed]="true"></soc-match-card>
+                    </div>
+                </div>
+            </div>
+            <div pageSection>
+                <soc-page-title [isSectionTitle]="true"
+                    [title]="'TEAMS.LEAGUES.registered'|translate"></soc-page-title>
+                <div class="registered__leagues__container">
+                    <soc-league-card *ngFor="let league of (teamLeagues$ | async)"
+                        [league]="league"
+                        [minified]="true"></soc-league-card>
+                </div>
             </div>
         </div>
     </div>
 </soc-page-layout>
+<ng-template #noUpcomingMatchesTemplate>
+    <div>
+        <p>your team does not have any upcoming matches</p>
+    </div>
+</ng-template>

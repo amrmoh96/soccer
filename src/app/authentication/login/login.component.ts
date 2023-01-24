@@ -47,7 +47,8 @@ export class LoginComponent implements OnInit {
           })
         }
       }, err => {
-        this.messageService.add({ severity: 'error', summary: 'Error Message', detail: `${err.error.message}` });
+        console.log(err);
+        this.messageService.add({ severity: 'error', summary: 'Error Message', detail: `${err.message || err.error.message}` });
       })
     } else {
       this.loginForm.markAllAsTouched()

@@ -28,9 +28,10 @@ export class PlayersComponent implements OnInit {
 
   public invitePlayer(id: number): void {
     const requestModel: Request = {
-      requestFrom: this.myTeam.teamId,
+      requestFrom: this.myTeam.playerId,
       requestType: RequestTypes['invite'],
-      requestTo: id
+      requestTo: id,
+      teamId:this.myTeam.teamId,
     }
     this.requestsService.createRequest(requestModel).subscribe(res => {
       console.log(res);

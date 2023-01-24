@@ -1,0 +1,43 @@
+<div class="upcoming__match__card">
+    <div class="upcoming__match__card__team__container">
+        <div class="upcoming__match__card__team__container__team__name">
+            <img src="../../../../assets/images/icons/soccer-jersey.png"
+                alt="">
+            <p>{{match?.homeTeamName}}</p>
+        </div>
+        <div class="upcoming__match__card__team__container__team__score"
+            [class.text-success]="getMatchResult() == 0"
+            [class.text-danger]="getMatchResult() == 1"
+            [class.text-muted]="getMatchResult() == 2">
+            <p *ngIf="matchPlayed">{{match?.homeTeamGoals || 0}}</p>
+            <span *ngIf="matchPlayed && match.penalities">({{match?.homeTeamPenalites}})</span>
+        </div>
+    </div>
+    <div class="upcoming__match__card__time__league__logo__container">
+        <div class="upcoming__match__card__league__logo">
+            <img *ngIf="match.leagueRuleId == 1"
+                src="../../../../assets/images/icons/cup.png"
+                [alt]="match.leagueRuleId"
+                [title]="match.leagueRuleId">
+            <img *ngIf="match.leagueRuleId == 2"
+                src="../../../../assets/images/icons/league.png"
+                [alt]="match.leagueRuleId"
+                [title]="match.leagueRuleId">
+        </div>
+        <p>{{match?.matchDate | relativeDate:matchPlayed}}</p>
+    </div>
+    <div class="upcoming__match__card__team__container away__team">
+        <div class="upcoming__match__card__team__container__team__score"
+            [class.text-success]="getMatchResult() == 1"
+            [class.text-danger]="getMatchResult() == 0"
+            [class.text-muted]="getMatchResult() == 2">
+            <p *ngIf="matchPlayed">{{match?.awayTeamGoals || 0}}</p>
+            <span *ngIf="matchPlayed && match.penalities">({{match?.awayTeamPenalites}})</span>
+        </div>
+        <div class="upcoming__match__card__team__container__team__name">
+            <p>{{match?.awayTeamName}}</p>
+            <img src="../../../../assets/images/icons/soccer-jersey.png"
+                alt="">
+        </div>
+    </div>
+</div>

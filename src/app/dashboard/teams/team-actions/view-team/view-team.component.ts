@@ -18,7 +18,7 @@ export class ViewTeamComponent implements OnInit {
       if (P.id) {
         this.TeamService.getTeamById(P.id).subscribe(res => {
           this.team = res;
-          this.TeamService.getTeamPlayersByTeamId(this.team.id).subscribe(players => {
+          this.TeamService.getTeamPlayersByTeamId(this.team.teamId).subscribe(players => {
             this.teamMembers = players
           })
         })
